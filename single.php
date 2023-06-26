@@ -131,10 +131,10 @@ if (isset($_POST['unliked'])) {
                     </div>
                     <div class="card-body border-top">
                         <p class="my-3"><?php echo $post['post_content']; ?></p>
-                        <p><?php echo "<b>Prompt for content :</b>", $post['content_prompt']; ?></p>
-                        <p><?php echo "<b>Prompt for content :</b>",$post['image_prompt']; ?></p>
+                        <p><?php echo "<b>Prompt for Content: </b>", $post['content_prompt']; ?></p>
+                        <p><?php echo "<b>Prompt for Image: </b>",$post['image_prompt']; ?></p>
                     </div>
-                    
+                    <h3> Comments: </h3>
                     <div class="card-footer">
                          <div class="comment-form flex align-items-center">
                     <?php if($login_user_pic): ?>
@@ -145,13 +145,13 @@ if (isset($_POST['unliked'])) {
                     <form class="flex" style="width: 100%" action="includes/comment.php?single-post-id=<?php echo $post_id; ?>" method="POST">
                         <input type="text" name="comment" placeholder="Leave a comment" style="width: 100%" required>
                         <input type="hidden" name="comment-postid" value="<?php echo $post_id; ?>" />
-                        <button style="margin-left:5px;" class="primary_btn" type="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+                        <button style="margin-left:5px;" class="primary_btn" type="submit"><i class="fa-solid fa-arrow-right"></i></button>
                     </form>
                 </div>
-                <h3 class="title" style="margin: 1rem 0;">Comments -
+                <h3 class="title" style="margin: 1rem 0;">Comments
                     <?php $comments_count = mysqli_query($conn,"SELECT COUNT(id) FROM user_comment  WHERE comment_post_id='$post_id'"); 
                         $row = $comments_count->fetch_row();
-                        echo '<span>('.$row[0].')</span>'; 
+                        echo '<span style="color:white;">('.$row[0].')</span>'; 
                     ?>
                 </h3>
                 <?php $all_comments = mysqli_query($conn,"SELECT * FROM user_comment WHERE comment_post_id='$post_id'");
@@ -190,10 +190,10 @@ if (isset($_POST['unliked'])) {
             $all_post = mysqli_query($conn,"SELECT * FROM user_post WHERE id='$post_id'");
             while ($post = mysqli_fetch_array($all_post)): 
             ?>  
-                <h3 class=" ">Ai Used for Blog</h3>
+                <h4 class=" ">Ai Used for Content</h3>
                 <a href="#" class="badge badge-primary m-1"><?php echo $post['content_ai']; ?></a><br>
                 <br><br>
-                <h3 class=" ">Ai Used for Image</h3>
+                <h4 class=" ">Ai Used for Image</h3>
                 <a href="javascript:void(0)" class="badge badge-primary m-1"><?php echo $post['image_ai']; ?></a><br>
                 <br><br><br>
                 <?php endwhile; ?>
