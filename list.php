@@ -24,7 +24,7 @@ $login_user_pic = $_SESSION['image'];
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link rel="stylesheet" href="css/home.css">
 
-    <section>
+    <section style="height:100vh;">
     
         <div class="main-content flex justify-content-center post-area">
             <?php

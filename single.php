@@ -84,7 +84,7 @@ if (isset($_POST['unliked'])) {
 
 
 <section data-spy="scroll" data-target=".navbar" data-offset="40" id="home" style="background-color: #151515; font-family: 'Montserrat', sans-serif;
-  color: #e5e5e2; scroll-behavior: smooth;">
+  color: #e5e5e2; scroll-behavior: smooth; ">
 
     <section class="container">
     <?php
