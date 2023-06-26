@@ -23,3 +23,6 @@ if (strcmp(strval(trim(response($comments))), 'No') == 0 or strcmp(strval(trim(r
     }
 
 }
+else{
+    header("location: ../single.php?post-id=".$post_id); 
+}

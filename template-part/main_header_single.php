@@ -1,10 +1,10 @@
-<?php include('head.php'); ?>
+<?php include('head_single.php'); ?>
 <body class="dark">
     <!---Header area start--->
     <header class="header-area">
         <div class="main-content flex align-items-center justify-content-space-between">
             <div class="logo-area">
-                <a href="home.php" style="color:black; text-decoration:none;"><h1 style="font-family:monospace;font-size: 25px; color: black;">CANI</h1></a>
+                <a href="home.php" style="color:black"><h1 style="font-family:monospace;font-size: 25px; ">CANI</h1></a>
             </div>
             <div class="flex align-items-center">
                 <ul class="main-menu flex align-items-center">
@@ -13,8 +13,8 @@
                     <?php //else: ?> -->
                         <!-- <img class="autor-img" src="./img/avatar.png" alt="<?php //echo $_SESSION['first'] ?>">
                     <?php //endif; ?><a href="profile.php">Profile</a></li> -->
-                    <li><a href="home.php" style="color:black; text-decoration:none;">Home</a></li>
-                    <li><a href="./includes/logout.php" style="color:black; text-decoration:none;">Log out</a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="./includes/logout.php">Log out</a></li>
                 </ul>
                 <div class="mobile-menu">
                     <button class="menu-bar primary_btn">&#9776;</button>

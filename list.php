@@ -4,7 +4,7 @@ include('./includes/db.php');
 if(!isset($_SESSION['first'])){
 	header('location: ./login.php');
 }
-include('./template-part/head.php') ;
+include('./template-part/main_header.php') ;
 $full_name = $_SESSION['first'].' '.$_SESSION['last'];
 $login_user_pic = $_SESSION['image'];
 ?>

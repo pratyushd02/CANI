@@ -20,3 +20,4 @@
 <!---style_switcher system start--->
 <?php include('style_switcher.php'); ?>
 <!---style_switcher system end--->
+

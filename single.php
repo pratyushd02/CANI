@@ -4,7 +4,7 @@ include('./includes/db.php');
 if(!isset($_SESSION['first'])){
 	header('location: ./login.php');
 }
-//include('./template-part/head.php') ;
+//include('./template-part/main_header.php') ;
 if(isset($_GET['post-id'])){
 		
 	$post_id=$_GET['post-id'];
@@ -66,17 +66,36 @@ if (isset($_POST['unliked'])) {
     <link rel="stylesheet" href="css/skins/color-3.css" class="alternate-style" title="color-3" disabled>
     <link rel="stylesheet" href="css/skins/color-4.css" class="alternate-style" title="color-4" disabled>
     <link rel="stylesheet" href="css/skins/color-5.css" class="alternate-style" title="color-5" disabled> 
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/thfemify-icons.css">
+    <!-- Bootstrap + JoeBLog main styles -->
+    <link rel="stylesheet" href="assets/css/joeblog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/like.css">
+
     <title>CANI</title>
 </head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Blogs</title>
-<!-- font icons -->
-<link rel="stylesheet" href="assets/vendors/themify-icons/css/thfemify-icons.css">
-<!-- Bootstrap + JoeBLog main styles -->
-<link rel="stylesheet" href="assets/css/joeblog.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="css/like.css">
+<header class="header-area">
+        <div class="main-content flex align-items-center justify-content-space-between">
+            <div class="logo-area">
+                <a href="home.php" style="color:black"><h1 style="font-family:monospace;font-size: 25px; ">CANI</h1></a>
+            </div>
+            <div class="flex align-items-center">
+                <ul class="main-menu flex align-items-center">
+                    <!-- <li><?php //if($_SESSION['image']): ?>
+                        <img class="autor-img" src="./img/<?php echo $_SESSION['image'] ?>" alt="<?php echo $_SESSION['first'] ?>">
+                    <?php //else: ?> -->
+                        <!-- <img class="autor-img" src="./img/avatar.png" alt="<?php //echo $_SESSION['first'] ?>">
+                    <?php //endif; ?><a href="profile.php">Profile</a></li> -->
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="./includes/logout.php">Log out</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <button class="menu-bar primary_btn">&#9776;</button>
+                </div>
+            </div>
+        </div>
+    </header> 
 
 
 
@@ -84,7 +103,7 @@ if (isset($_POST['unliked'])) {
 
 
 <section data-spy="scroll" data-target=".navbar" data-offset="40" id="home" style="background-color: #151515; font-family: 'Montserrat', sans-serif;
-  color: #e5e5e2; scroll-behavior: smooth; ">
+  color: #e5e5e2; scroll-behavior: smooth; margin-top: 0px; ">
 
     <section class="container">
     <?php
@@ -134,7 +153,6 @@ if (isset($_POST['unliked'])) {
                         <p><?php echo "<b>Prompt for Content: </b>", $post['content_prompt']; ?></p>
                         <p><?php echo "<b>Prompt for Image: </b>",$post['image_prompt']; ?></p>
                     </div>
-                    <h3> Comments: </h3>
                     <div class="card-footer">
                          <div class="comment-form flex align-items-center">
                     <?php if($login_user_pic): ?>
