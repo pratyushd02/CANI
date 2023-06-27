@@ -9,7 +9,7 @@ $full_name = $_SESSION['first'].' '.$_SESSION['last'];
 $login_user_pic = $_SESSION['image'];
 ?>
     <!---Add post section start--->
-    <?php include('./template-part/add_post_form.php') ?>
+    <?php //include('./template-part/add_post_form.php') ?>
     <!---Add post section end--->
     
     <!---Home main section start--->
@@ -70,6 +70,9 @@ $login_user_pic = $_SESSION['image'];
                 <?php include('./template-part/no_post_found.php') ?>
             <?php  endif; ?> 
         </div>
+        <?php if($_SESSION['email'] == "admin@email.com") : ?>
+            <?php  echo " <a href='add_post_form.php?id={$id}'> Upload </a> "; ?>
+        <?php endif; ?>
     </section>
     <!---Home main section end--->
     <?php include('./template-part/footer.php') ?>

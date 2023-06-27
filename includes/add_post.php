@@ -59,7 +59,9 @@
 		if (isset($_GET['profile'])) {
 			header('location: ../profile.php?result=unable-to-create-post');
 		} else {
-			header('location: ../home.php?result=unable-to-create-post');
+			echo $contentprompt,$postcont,$post_image,$imageprompt,$toolcontent,$toolimage,$topic_id,$user_pic,$post_title; 
+			echo mysqli_query($conn,$query);
+			//header('location: ../home.php?result=unable-to-create-post');
 		}
 	}
 	

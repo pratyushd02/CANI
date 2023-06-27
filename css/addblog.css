@@ -8,6 +8,7 @@ body {
     display: flex;
 }
 
+
 .form-group {
     margin-top: 20px;
 }
@@ -59,4 +60,8 @@ button {
     cursor: pointer;
     opacity: 0;
 
+}
+
+input[type=text]{
+    color:white;
 }
