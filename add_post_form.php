@@ -48,14 +48,14 @@ $id = $_GET["id"];
                         <label for="ptext" style="font-size: 20px; font-weight: 400; margin-bottom: 10px;">Prompt used
                             to generate <span
                                 style="color: #E966A0; font-size: 22px; font-weight: 500;">Text</span></label>
-                        <input type="text" name="contentprompt" id="contentprompt" class="form-control bg-dark ta" 
+                        <input type="text" style="color:white;" name="contentprompt" id="contentprompt" class="form-control bg-dark ta" 
                             placeholder="Enter Promt for text">
                     </div>
                     <div class="form-group">
                         <label for="itext" style="font-size: 20px; font-weight: 400; margin-bottom: 10px;">Prompt used
                             to generate <span
                                 style="color: #E966A0; font-size: 22px; font-weight: 500;">Image</span></label>
-                        <input type="text" class="form-control bg-dark ta" name="imageprompt" id="imageprompt" 
+                        <input type="text" style="color:white;" class="form-control bg-dark ta" name="imageprompt" id="imageprompt" 
                             placeholder="Enter Promt for image" style="width: 450px;">
                     </div>
                     <div class="form-group">

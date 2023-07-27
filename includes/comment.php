@@ -9,6 +9,7 @@ $user_picture = $_SESSION['image'];
 $comments = $_POST['comment'];
 $post_id = $_POST['comment-postid'];
 
+
 if (strcmp(strval(trim(response($comments))), 'No') == 0 or strcmp(strval(trim(response($comments))), 'No.') == 0){
     $query = "INSERT INTO user_comment(`user_name`,`user_pic`,`comment`,`comment_post_id`) VALUES('$user_nam','$user_picture','$comments','$post_id')";
     mysqli_query($conn,$query);

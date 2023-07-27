@@ -71,7 +71,7 @@ $login_user_pic = $_SESSION['image'];
             <?php  endif; ?> 
         </div>
         <?php if($_SESSION['email'] == "admin@email.com") : ?>
-            <?php  echo " <a href='add_post_form.php?id={$id}'> Upload </a> "; ?>
+            <?php  echo " <span style='float:right; margin-right:5%;' class='btn btn-warning'> <a style='text-decoration:none;' href='add_post_form.php?id={$id}'> Upload </a> <span>"; ?>
         <?php endif; ?>
     </section>
     <!---Home main section end--->

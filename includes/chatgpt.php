@@ -21,7 +21,7 @@ function response($comments){
 
         $headers = array();
         $headers[] = 'Content-Type: application/json';
-        $headers[] = 'Authorization:Bearer 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';
+        $headers[] = 'Authorization:Bearer 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';
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 

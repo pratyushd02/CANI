@@ -27,7 +27,7 @@ include('./template-part/head_login.php') ?>
                             placeholder="Password" style="margin-top: 20px; color: #e5e5e2;">
                     </div>
                     <button type="submit" class="btn" style="margin-top: 20px;" value="Log in">Sign In</button><br>
-                    <button type="button" class="btn1 btn-outline-secondary">Back To Home</button>
+                    <!-- <a href="home.php"><button type="button" class="btn1 btn-outline-secondary">Back To Home</button></a> -->
                 </form>
             </div>
         </div>
