@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="./css/aos.css">
 
     <!-- Custom Style   -->
-    <link rel="stylesheet" href="./css/Style.css">
+    <link rel="stylesheet" href="./css/admin.css">
     <title>Document</title>
 </head>
 
@@ -32,15 +32,11 @@
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
-                    role="tab" aria-controls="home" aria-selected="true">Home</button>
+                    role="tab" aria-controls="home" aria-selected="true">Domains</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
-                    role="tab" aria-controls="profile" aria-selected="false">Profile</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
-                    role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+                    role="tab" aria-controls="profile" aria-selected="false">New Blog</button>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -52,15 +48,132 @@
                     <div class="float-end">
                         <h4>Add Domain</h4>
                         <div class="col-sm-10">
-                            <input type="text" readonly class="form-control-plaintext" id="newDomain" value="newDomain">
+                            <input type="text" class="form-control-plaintext" id="newDomain" placeholder="newDomain">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                add blog
+                <div class="container text-center">
+                    <div class="add-domain">
+                        <h4>Select Domain</h4>
+                        <select name="pets" id="pet-select">
+                            <option value="">--Please choose an option--</option>
+                            <option value="dog">Dog</option>
+                            <option value="cat">Cat</option>
+                            <option value="hamster">Hamster</option>
+                            <option value="parrot">Parrot</option>
+                            <option value="spider">Spider</option>
+                            <option value="goldfish">Goldfish</option>
+                        </select>
+                    </div>
+                    <h4>add a new blog</h4>
+                    <div class="float-start text-start" style="width: 50%;">
+                        <input type="text" class="form-control-plaintext" id="newDomain" placeholder="AI for Text">
+                        <input type="textarea" class="form-control-plaintext" id="newDomain"
+                            placeholder="prompt for text">
+                    </div>
+                    <div class="float-end text-start" style="width: 50%;">
+                        <input type="text" class="form-control-plaintext" id="newDomain" placeholder="AI for Image">
+                        <input type="textarea" class="form-control-plaintext" id="newDomain"
+                            placeholder="prompt for image">
+                    </div>
+                    <h4>Upload Image</h4>
+                    <div id="drop-area">
+                        <form class="my-form">
+                            <p>Upload multiple files with the file dialog or by dragging and dropping images onto the
+                                dashed region</p>
+                            <input type="file" id="fileElem" multiple accept="image/*"
+                                onchange="handleFiles(this.files)">
+                            <label class="button" for="fileElem">Select some files</label>
+                        </form>
+                    </div>
+                    <script>
+                        let dropArea = document.getElementById('drop-area');
+                        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                            dropArea.addEventListener(eventName, preventDefaults, false)
+                        })
+
+                        function preventDefaults(e) {
+                            e.preventDefault()
+                            e.stopPropagation()
+                        }
+                        ;['dragenter', 'dragover'].forEach(eventName => {
+                            dropArea.addEventListener(eventName, highlight, false)
+                        })
+
+                            ;['dragleave', 'drop'].forEach(eventName => {
+                                dropArea.addEventListener(eventName, unhighlight, false)
+                            })
+
+                        function highlight(e) {
+                            dropArea.classList.add('highlight')
+                        }
+
+                        function unhighlight(e) {
+                            dropArea.classList.remove('highlight')
+                        }
+                        dropArea.addEventListener('drop', handleDrop, false)
+                        // <!-- ------------ Files Drop ------------------------- -->
+                        function handleDrop(e) {
+                            let dt = e.dataTransfer
+                            let files = dt.files
+
+                            handleFiles(files)
+                        }
+                        // <!-- ------------ Convert file list to array ------------------------- -->
+                        function handleFiles(files) {
+                            ([...files]).forEach(uploadFile)
+                        }
+                        // <!-- ------------ Upload files ------------------------- -->
+                        function uploadFile(file) {
+                            let url = 'YOUR URL HERE'
+                            let formData = new FormData()
+
+                            formData.append('file', file)
+
+                            fetch(url, {
+                                method: 'POST',
+                                body: formData
+                            })
+                                .then(() => { /* Done. Inform the user */ })
+                                .catch(() => { /* Error. Inform the user */ })
+                        }
+                        // <!-- ------------ Drag & Drop API ------------------------- -->
+                        function uploadFile(file) {
+                            var url = 'YOUR URL HERE'
+                            var xhr = new XMLHttpRequest()
+                            var formData = new FormData()
+                            xhr.open('POST', url, true)
+
+                            xhr.addEventListener('readystatechange', function (e) {
+                                if (xhr.readyState == 4 && xhr.status == 200) {
+                                    // Done. Inform the user
+                                }
+                                else if (xhr.readyState == 4 && xhr.status != 200) {
+                                    // Error. Inform the user
+                                }
+                            })
+
+                            formData.append('file', file)
+                            xhr.send(formData)
+                        }
+                        // <!-- ------------ Preview ------------------------- -->
+                        function previewFile(file) {
+                            let reader = new FileReader()
+                            reader.readAsDataURL(file)
+                            reader.onloadend = function () {
+                                let img = document.createElement('img')
+                                img.src = reader.result
+                                document.getElementById('gallery').appendChild(img)
+                            }
+                        }
+
+
+
+                    </script>
+                </div>
             </div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"> manage requests</div>
         </div>
     </div>
 </body>
