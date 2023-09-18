@@ -4,6 +4,7 @@ include('./includes/db.php');
 if(!isset($_SESSION['first'])){
 	header('location: ./login.php');
 }
+include('./sharingbuttons.php');
 //include('./template-part/main_header.php') ;
 if(isset($_GET['post-id'])){
 		
@@ -72,30 +73,46 @@ if (isset($_POST['unliked'])) {
     <link rel="stylesheet" href="assets/css/joeblog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/like.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="./css/Style_new.css">
+    <link rel="stylesheet" type="text/css" href="sharingbuttons.css"/>
 
     <title>CANI</title>
 </head>
-<header class="header-area">
-        <div class="main-content flex align-items-center justify-content-space-between">
-            <div class="logo-area">
-                <a href="home.php" style="color:black"><h1 style="font-family:monospace;font-size: 25px; ">CANI</h1></a>
+<nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="#" class="text-gray">CANI</a>
             </div>
-            <div class="flex align-items-center">
-                <ul class="main-menu flex align-items-center">
-                    <!-- <li><?php //if($_SESSION['image']): ?>
-                        <img class="autor-img" src="./img/<?php echo $_SESSION['image'] ?>" alt="<?php echo $_SESSION['first'] ?>">
-                    <?php //else: ?> -->
-                        <!-- <img class="autor-img" src="./img/avatar.png" alt="<?php //echo $_SESSION['first'] ?>">
-                    <?php //endif; ?><a href="profile.php">Profile</a></li> -->
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="./includes/logout.php">Log out</a></li>
-                </ul>
-                <div class="mobile-menu">
-                    <button class="menu-bar primary_btn">&#9776;</button>
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
                 </div>
             </div>
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Category</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">About</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <?php echo $_SESSION['first'] ?>
+                <button class="btn" style="padding: 13px 16px; margin-bottom: 5px; border-radius: 5px;">
+                <a href="./includes/logout.php">Log out</a>
+                </button>
+            </div>
         </div>
-    </header> 
+    </nav>
 
 
 
@@ -152,6 +169,11 @@ if (isset($_POST['unliked'])) {
                         <p class="my-3"><?php echo $post['post_content']; ?></p>
                         <p><?php echo "<b>Prompt for Content: </b>", $post['content_prompt']; ?></p>
                         <p><?php echo "<b>Prompt for Image: </b>",$post['image_prompt']; ?></p>
+                    </div>
+                    <div>
+                    <?php
+                    showSharer("https://google.com/", "A search engine site!");
+                    ?>
                     </div>
                     <div class="card-footer">
                          <div class="comment-form flex align-items-center">
