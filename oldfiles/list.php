@@ -84,14 +84,15 @@ if(!isset($_SESSION['first'])){
     <section class="top-1" style=" margin-top: 5%; height: 450px;">
     <div class="container">
     <?php
-            $all_post = mysqli_query($conn,"SELECT * FROM user_post ORDER BY likes DESC LIMIT 1");
+            $id = $_GET["id"];
+            $all_post = mysqli_query($conn,"SELECT * FROM user_post WHERE topic_id=$id ORDER BY likes DESC LIMIT 1");
             $post_num = mysqli_num_rows($all_post);
             while ($post = mysqli_fetch_array($all_post)):
             
     ?>
             <div class="top1-2">
                 <div class="float-start" style="width: 50%;">
-                <img class="blog1" style="width: 530px; border-radius: 30px;"
+                <img class="blog1" style="width: 530px; height: 230px; border-radius: 30px;"
                 src="./img/<?php echo $post['post_image'] ?>" alt="<?php echo $post['post_title'] ?>" > 
             </div>
                 <div class="float-end" style="width: 50%;">
